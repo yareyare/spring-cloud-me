@@ -1,0 +1,25 @@
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+spring.cloud.stream:
+  bindings:
+    # input channels
+    queue1-input:
+      destination: ivy-topic
+      group: router
+      consumer:
+        maxAttempts: 1
+        concurrency: 10
+    # output channels
+    queue1-output.destination: ivy-topic
+  rabbit.bindings:
+    # input channels' properties
+    queue1-input.consumer:
+      bindingRoutingKey: rout_q1
+    # output channels' properties
+    queue1-output.producer:
+      routingKeyExpression: '''rout_q1'''
