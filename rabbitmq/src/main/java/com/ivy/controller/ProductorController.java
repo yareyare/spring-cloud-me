@@ -13,12 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/api")
 public class ProductorController {
 
-    private final MessageProductor productor;
-
     @Autowired
-    public ProductorController(MessageProductor productor) {
-        this.productor = productor;
-    }
+    private MessageProductor productor;
 
     @PostMapping(value = "/send")
     public void send(String message) {

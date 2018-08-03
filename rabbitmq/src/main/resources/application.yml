@@ -19,7 +19,7 @@ spring.cloud.stream:
   rabbit.bindings:
     # input channels' properties
     queue1-input.consumer:
-      bindingRoutingKey: router
+      bindingRoutingKey: rout_q1
     # output channels' properties
     queue1-output.producer:
-      routingKeyExpression: '''router'''
+      routingKeyExpression: '''rout_q1'''
